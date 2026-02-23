@@ -224,6 +224,7 @@ export class Friendship {
   @Column({ nullable: true })              price: string
   @Column({ nullable: true })              imageUrl: string
   @Column({ default: 1 })                  priority: number  // 1=low 2=medium 3=high
+  @Column({ nullable: true })              note: string | null  // owner's hint: size, color, variant, etc.
   @CreateDateColumn()                      createdAt: Date
 
   @OneToOne(() => GiftClaim, c => c.item) claim: GiftClaim | null
@@ -476,6 +477,43 @@ canViewList(userId, list):
 - Fetches items with their claims via TypeORM relation
 - If `isOwner === true` → maps items to `ItemResponse` with `claim: undefined` (stripped)
 - Otherwise → maps items to `ItemResponse` with `claim: { claimedByName } | null`
+
+### Item DTOs (`server/src/resources/item/item.resource.ts`)
+
+```typescript
+// Fields the owner supplies when adding / editing an item
+interface CreateItemDto {
+  url:         string           // required — OG scraper runs against this
+  title?:      string           // overrides scraped title
+  description?: string          // overrides scraped description
+  price?:      string           // overrides scraped price
+  imageUrl?:   string           // overrides scraped image
+  priority?:   1 | 2 | 3       // 1=low 2=medium 3=high; default 1
+  note?:       string           // owner's hint to gift-buyers (size, color, variant, etc.)
+}
+
+interface UpdateItemDto {
+  title?:      string
+  description?: string
+  price?:      string
+  imageUrl?:   string
+  priority?:   1 | 2 | 3
+  note?:       string
+}
+
+interface ItemResponse {
+  id:          string
+  title:       string
+  url:         string
+  description: string | null
+  price:       string | null
+  imageUrl:    string | null
+  priority:    1 | 2 | 3
+  note:        string | null    // always visible to anyone who can view the list
+  claim:       { claimedByName: string } | null  // stripped (undefined) when requester is owner
+  createdAt:   string
+}
+```
 
 ### OG Scraper (`server/src/resources/item/item.service.ts`)
 
