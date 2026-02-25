@@ -597,7 +597,7 @@ queryClient.invalidateQueries({ queryKey: listKeys.all() })
 
 ### PrimeReact Theme
 
-- **Theme**: Lara Light Indigo (`primereact/resources/themes/lara-light-indigo/theme.css`)
+- **Theme**: Lara Dark Indigo (`primereact/resources/themes/lara-dark-indigo/theme.css`)
 - **Icons**: PrimeIcons (`primeicons/primeicons.css`)
 - **Layout grid**: PrimeFlex (`primeflex/primeflex.css`)
 - CSS variable overrides for brand colors live in `client/src/theme/theme.css`

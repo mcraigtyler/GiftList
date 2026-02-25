@@ -1,0 +1,40 @@
+/* PrimeReact dark theme */
+@import 'primereact/resources/themes/lara-dark-indigo/theme.css';
+@import 'primereact/resources/primereact.min.css';
+@import 'primeicons/primeicons.css';
+@import 'primeflex/primeflex.css';
+
+/* Tailwind utilities (no preflight — PrimeReact owns base styles) */
+@tailwind components;
+@tailwind utilities;
+
+/* ── Custom dark palette overrides ─────────────────────────────────────── */
+:root {
+  --font-family: 'Inter', sans-serif;
+
+  /* Backgrounds */
+  --surface-ground:   #0F1117;
+  --surface-section:  #0F1117;
+  --surface-card:     #1A1D27;
+  --surface-overlay:  #1A1D27;
+  --surface-border:   #2A2D3A;
+  --surface-hover:    #20233A;
+
+  /* Text */
+  --text-color:           #E2E8F0;
+  --text-color-secondary: #64748B;
+
+  /* Primary (indigo) */
+  --primary-color:        #6366F1;
+  --primary-color-text:   #ffffff;
+
+  /* Sidebar */
+  --sidebar-bg: #13151F;
+}
+
+body {
+  background-color: var(--surface-ground);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  margin: 0;
+}

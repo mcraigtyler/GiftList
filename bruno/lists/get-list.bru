@@ -1,0 +1,14 @@
+meta {
+  name: Get List by ID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/api/lists/:listId
+  auth: none
+}
+
+params:path {
+  listId: your-list-id-here
+}
