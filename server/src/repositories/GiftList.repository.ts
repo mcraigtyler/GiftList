@@ -3,7 +3,11 @@ import { GiftList, ListVisibility } from '../entities/GiftList.entity'
 
 export const GiftListRepository = AppDataSource.getRepository(GiftList).extend({
   findByOwner(ownerId: string) {
-    return this.find({ where: { ownerId }, order: { createdAt: 'DESC' } })
+    return this.find({
+      where: { ownerId },
+      relations: { items: true },
+      order: { createdAt: 'DESC' },
+    })
   },
 
   findWithItems(id: string) {

@@ -35,11 +35,11 @@
 
 > Goal: Authenticated users can create lists, add items via URL, and see auto-scraped product metadata.
 
-- [ ] **Task 11** — Implement `list` resource: `list.resource.ts`, `list.controller.ts`, `list.service.ts` (imports `GiftListRepository`, `FriendshipRepository`, `ListInviteRepository`); `canViewList` access control; full CRUD
-- [ ] **Task 12** — Implement `item` resource: `item.resource.ts`, `item.controller.ts`, `item.service.ts` (imports `GiftItemRepository`)
-- [ ] **Task 13** — Add OG scraper to `item.service.ts` (wraps `open-graph-scraper`); expose `POST /og-scrape` in `item.controller.ts` for client-side URL preview
-- [ ] **Task 14** — Build `MyListsPage` (PrimeReact `Card` grid, `Dialog` for create list, `ConfirmDialog` for delete; responsive `col-12 md:col-6 lg:col-4` grid)
-- [ ] **Task 15** — Build `ListDetailPage` (PrimeReact `Card` per item with image/title/price/URL; `Dialog` for add-item with URL + auto-scrape; `SelectButton` for priority; responsive single/two-column layout)
+- [x] **Task 11** — Implement `list` resource: `list.resource.ts`, `list.controller.ts`, `list.service.ts` (imports `GiftListRepository`, `FriendshipRepository`, `ListInviteRepository`); `canViewList` access control; full CRUD
+- [x] **Task 12** — Implement `item` resource: `item.resource.ts`, `item.controller.ts`, `item.service.ts` (imports `GiftItemRepository`)
+- [x] **Task 13** — Add OG scraper to `item.service.ts` (wraps `open-graph-scraper`); expose `POST /og-scrape` in `item.controller.ts` for client-side URL preview
+- [x] **Task 14** — Build `MyListsPage` (PrimeReact `Card` grid, `Dialog` for create list, `ConfirmDialog` for delete; responsive `col-12 md:col-6 lg:col-4` grid)
+- [x] **Task 15** — Build `ListDetailPage` (PrimeReact `Card` per item with image/title/price/URL; `Dialog` for add-item with URL + auto-scrape; `SelectButton` for priority; responsive single/two-column layout)
 
 ---
 
