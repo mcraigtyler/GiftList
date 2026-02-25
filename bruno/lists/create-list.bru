@@ -1,0 +1,19 @@
+meta {
+  name: Create List
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/api/lists
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Birthday Wishlist",
+    "description": "Things I'd love for my birthday",
+    "visibility": "FRIENDS"
+  }
+}

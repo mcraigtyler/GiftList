@@ -1,0 +1,22 @@
+meta {
+  name: Update List
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/api/lists/:listId
+  body: json
+  auth: none
+}
+
+params:path {
+  listId: your-list-id-here
+}
+
+body:json {
+  {
+    "name": "Updated List Name",
+    "visibility": "PRIVATE"
+  }
+}

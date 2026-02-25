@@ -1,0 +1,6 @@
+{
+  "watch": ["src"],
+  "ext": "ts",
+  "ignore": ["src/generated", "src/**/__tests__"],
+  "exec": "ts-node -r reflect-metadata --project tsconfig.json src/index.ts"
+}

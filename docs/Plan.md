@@ -10,13 +10,13 @@
 
 > Goal: Working monorepo with both apps running locally, connected to a local Postgres DB.
 
-- [ ] **Task 1** — Init monorepo root with `package.json` (workspaces), `.gitignore`, and `README.md`
-- [ ] **Task 2** — Scaffold `client/` with Vite + React + TypeScript; install TanStack Query, React Router, PrimeReact, PrimeIcons, and PrimeFlex; install Vitest + `@testing-library/react` for unit tests; install Playwright and create `playwright.config.ts` with desktop / tablet / mobile viewport projects pointing at `http://localhost:5173`; add `e2e/` folder at monorepo root
-- [ ] **Task 3** — Scaffold `server/` with Express + TypeScript; install tsoa; configure `tsconfig` (with `experimentalDecorators` + `emitDecoratorMetadata`), `nodemon`, `ts-node`, and `tsoa.json`; install Vitest for unit tests
-- [ ] **Task 4** — Configure PrimeReact Lara Light Indigo theme, import PrimeFlex and PrimeIcons in `theme.css`; add Inter font; configure Tailwind for layout utilities alongside PrimeReact
-- [ ] **Task 5** — Init TypeORM in `server/`; write all entity classes using `@PrimaryColumn('uuid')` + `@BeforeInsert()` uuidv7 pattern; write all repository files in `src/repositories/` (one per entity, using `.extend()`); configure `dataSource.ts`; run first migration against local Postgres
-- [ ] **Task 6** — Wire up Express entry point: CORS, cookie-parser, JSON body parser, mount tsoa-generated `RegisterRoutes(app)`, global error handler; add `tsoa spec-and-routes` to dev/build scripts
-- [ ] **Task 6a** — Init Bruno collection at `bruno/` in monorepo root; add resource folders (`auth`, `lists`, `items`, `friends`, `invites`, `claims`); configure `Local` and `Production` Bruno environments with `baseUrl`; commit `.bru` files to repo alongside source
+- [x] **Task 1** — Init monorepo root with `package.json` (workspaces), `.gitignore`, and `README.md`
+- [x] **Task 2** — Scaffold `client/` with Vite + React + TypeScript; install TanStack Query, React Router, PrimeReact, PrimeIcons, and PrimeFlex; install Vitest + `@testing-library/react` for unit tests; install Playwright and create `playwright.config.ts` with desktop / tablet / mobile viewport projects pointing at `http://localhost:5173`; add `e2e/` folder at monorepo root
+- [x] **Task 3** — Scaffold `server/` with Express + TypeScript; install tsoa; configure `tsconfig` (with `experimentalDecorators` + `emitDecoratorMetadata`), `nodemon`, `ts-node`, and `tsoa.json`; install Vitest for unit tests
+- [x] **Task 4** — Configure PrimeReact Lara Dark Indigo theme, import PrimeFlex and PrimeIcons in `theme.css`; add Inter font; configure Tailwind for layout utilities alongside PrimeReact
+- [x] **Task 5** — Init TypeORM in `server/`; write all entity classes using `@PrimaryColumn('uuid')` + `@BeforeInsert()` uuidv7 pattern; write all repository files in `src/repositories/` (one per entity, using `.extend()`); configure `dataSource.ts`; run first migration against local Postgres
+- [x] **Task 6** — Wire up Express entry point: CORS, cookie-parser, JSON body parser, mount tsoa-generated `RegisterRoutes(app)`, global error handler; add `tsoa spec-and-routes` to dev/build scripts
+- [x] **Task 6a** — Init Bruno collection at `bruno/` in monorepo root; add resource folders (`auth`, `lists`, `items`, `friends`, `invites`, `claims`); configure `Local` and `Production` Bruno environments with `baseUrl`; commit `.bru` files to repo alongside source
 
 ---
 
