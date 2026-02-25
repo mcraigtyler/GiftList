@@ -1,24 +1,30 @@
 import { Route, Get, Post, Put, Delete, Body, Path, Controller, Security, Request } from 'tsoa'
 import { Request as ExpressRequest } from 'express'
 import { CreateListDto, UpdateListDto, ListResponse, ListDetailResponse } from './list.resource'
+import { ListService } from './list.service'
+
+type AuthRequest = ExpressRequest & { user: { sub: string } }
 
 @Route('api/lists')
 export class ListController extends Controller {
   /** Get all my lists */
   @Get()
   @Security('jwt')
-  async getAll(@Request() _req: ExpressRequest): Promise<ListResponse[]> {
-    throw new Error('Not implemented — see Phase 3')
+  async getAll(@Request() req: ExpressRequest): Promise<ListResponse[]> {
+    const { sub } = (req as AuthRequest).user
+    return ListService.getAll(sub)
   }
 
   /** Create a new list */
   @Post()
   @Security('jwt')
   async create(
-    @Body() _body: CreateListDto,
-    @Request() _req: ExpressRequest,
+    @Body() body: CreateListDto,
+    @Request() req: ExpressRequest,
   ): Promise<ListResponse> {
-    throw new Error('Not implemented — see Phase 3')
+    const { sub } = (req as AuthRequest).user
+    this.setStatus(201)
+    return ListService.create(body, sub)
   }
 
   /** Get a single list with its items */
@@ -26,10 +32,10 @@ export class ListController extends Controller {
   @Security('jwt')
   async getById(
     @Path() id: string,
-    @Request() _req: ExpressRequest,
+    @Request() req: ExpressRequest,
   ): Promise<ListDetailResponse> {
-    void id
-    throw new Error('Not implemented — see Phase 3')
+    const { sub } = (req as AuthRequest).user
+    return ListService.getById(id, sub)
   }
 
   /** Update list metadata */
@@ -37,11 +43,11 @@ export class ListController extends Controller {
   @Security('jwt')
   async update(
     @Path() id: string,
-    @Body() _body: UpdateListDto,
-    @Request() _req: ExpressRequest,
+    @Body() body: UpdateListDto,
+    @Request() req: ExpressRequest,
   ): Promise<ListResponse> {
-    void id
-    throw new Error('Not implemented — see Phase 3')
+    const { sub } = (req as AuthRequest).user
+    return ListService.update(id, body, sub)
   }
 
   /** Delete a list */
@@ -49,9 +55,10 @@ export class ListController extends Controller {
   @Security('jwt')
   async remove(
     @Path() id: string,
-    @Request() _req: ExpressRequest,
+    @Request() req: ExpressRequest,
   ): Promise<void> {
-    void id
-    throw new Error('Not implemented — see Phase 3')
+    const { sub } = (req as AuthRequest).user
+    this.setStatus(204)
+    return ListService.remove(id, sub)
   }
 }

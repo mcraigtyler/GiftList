@@ -29,19 +29,19 @@ export class GiftItem {
   @Column()
   url!: string
 
-  @Column({ nullable: true })
+  @Column({ type: 'text', nullable: true })
   description!: string | null
 
-  @Column({ nullable: true })
+  @Column({ type: 'varchar', nullable: true })
   price!: string | null
 
-  @Column({ nullable: true })
+  @Column({ type: 'text', nullable: true })
   imageUrl!: string | null
 
   @Column({ default: 1 })
   priority!: number
 
-  @Column({ nullable: true })
+  @Column({ type: 'text', nullable: true })
   note!: string | null
 
   @CreateDateColumn()

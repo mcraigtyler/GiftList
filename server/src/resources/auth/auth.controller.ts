@@ -1,32 +1,40 @@
 import { Route, Post, Get, Body, Controller, Security, Request } from 'tsoa'
 import { Request as ExpressRequest } from 'express'
 import { RegisterDto, LoginDto, AuthResponse } from './auth.resource'
+import { AuthService } from './auth.service'
 
 @Route('api/auth')
 export class AuthController extends Controller {
   /** Register a new user */
   @Post('register')
-  async register(@Body() _body: RegisterDto): Promise<AuthResponse> {
-    throw new Error('Not implemented — see Phase 2')
+  async register(
+    @Body() body: RegisterDto,
+    @Request() req: ExpressRequest,
+  ): Promise<AuthResponse> {
+    return AuthService.register(body, req.res!)
   }
 
   /** Login and receive an httpOnly JWT cookie */
   @Post('login')
-  async login(@Body() _body: LoginDto): Promise<AuthResponse> {
-    throw new Error('Not implemented — see Phase 2')
+  async login(
+    @Body() body: LoginDto,
+    @Request() req: ExpressRequest,
+  ): Promise<AuthResponse> {
+    return AuthService.login(body, req.res!)
   }
 
   /** Logout — clears JWT cookie */
   @Post('logout')
   @Security('jwt')
-  async logout(@Request() _req: ExpressRequest): Promise<void> {
-    throw new Error('Not implemented — see Phase 2')
+  async logout(@Request() req: ExpressRequest): Promise<void> {
+    return AuthService.logout(req.res!)
   }
 
   /** Return current authenticated user */
   @Get('me')
   @Security('jwt')
-  async me(@Request() _req: ExpressRequest): Promise<AuthResponse> {
-    throw new Error('Not implemented — see Phase 2')
+  async me(@Request() req: ExpressRequest): Promise<AuthResponse> {
+    const { sub } = (req as ExpressRequest & { user: { sub: string } }).user
+    return AuthService.me(sub)
   }
 }
