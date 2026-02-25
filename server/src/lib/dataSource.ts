@@ -1,4 +1,6 @@
 import 'reflect-metadata'
+import * as dotenv from 'dotenv'
+dotenv.config()
 import { DataSource } from 'typeorm'
 import { User } from '../entities/User.entity'
 import { Friendship } from '../entities/Friendship.entity'
