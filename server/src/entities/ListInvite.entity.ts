@@ -34,7 +34,7 @@ export class ListInvite {
   @ManyToOne('User', 'listInvites', { nullable: true })
   invitee!: User | null
 
-  @Column({ nullable: true })
+  @Column({ type: 'uuid', nullable: true })
   inviteeId!: string | null
 
   @Column({ type: 'enum', enum: InviteStatus, default: InviteStatus.PENDING })
