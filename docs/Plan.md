@@ -24,10 +24,10 @@
 
 > Goal: Users can register, login, and stay logged in across page refreshes.
 
-- [ ] **Task 7** — Implement `auth` resource: `auth.resource.ts` (DTOs), `auth.controller.ts` (`@Route('auth')`), `auth.service.ts` (imports `UserRepository`); covers register, login (sets httpOnly cookie), logout, me
-- [ ] **Task 8** — Write `middleware/authentication.ts` (tsoa's `expressAuthentication` — reads JWT cookie, verifies, returns payload); write `lib/jwt.ts` and `lib/password.ts`
-- [ ] **Task 9** — Build `LoginPage` and `RegisterPage` with form validation
-- [ ] **Task 10** — Implement `AuthContext` (current user state, login/logout helpers) and `ProtectedRoute` wrapper
+- [x] **Task 7** — Implement `auth` resource: `auth.resource.ts` (DTOs), `auth.controller.ts` (`@Route('auth')`), `auth.service.ts` (imports `UserRepository`); covers register, login (sets httpOnly cookie), logout, me
+- [x] **Task 8** — Write `middleware/authentication.ts` (tsoa's `expressAuthentication` — reads JWT cookie, verifies, returns payload); write `lib/jwt.ts` and `lib/password.ts`
+- [x] **Task 9** — Build `LoginPage` and `RegisterPage` with form validation
+- [x] **Task 10** — Implement `AuthContext` (current user state, login/logout helpers) and `ProtectedRoute` wrapper
 
 ---
 
